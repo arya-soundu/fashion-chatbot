@@ -24,6 +24,8 @@ def chat_response():
 
     final_response = add_personality(raw_response)
     return jsonify(final_response)
-
+@app.route("/")
+def index():
+    return render_template("index.html")
 if __name__ == "__main__":
     app.run(debug=True)
