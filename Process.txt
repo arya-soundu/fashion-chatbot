@@ -1,0 +1,29 @@
+To activate virtual environment
+- Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+- .\venv\Scripts\activate
+
+Why venv?
+- helps with versin control and any downloads done for the chatbot is inside this venv and not common for all the systems 
+
+Github repo - fashion-chatbot
+- do not add all the venv details to git repo
+- .gitignore file contains data that we want to ignore when we commit everything back 
+- to ensure venv isn't there we put in venv/ in the .gitignore file
+
+GITHUB FUNCTIONS
+- git init = 
+- git reset = clears the git memory
+- git add. = adds everything
+- git commit -m "" = commits everything and inside quotes is the changes we made 
+- git status = files ready to be commited
+- git branch -M main = This command ensures your main branch is called 'main'
+- git remote add origin https://github.com/YOUR_USERNAME/fashion-chatbot.git = This command creates the connection (the 'remote')
+- git push -u origin main = pushes local main branch into github
+- -u flag sets it up so that i can just type git push
+
+outfits.json file
+- This file conatins details about different outfits that one can wear based on different timings and offers variety for work, casual, formal and so on
+- it aslo has image links for reference 
+- there however needs to be more options here
+- probably also figure out a btter method then putting everything into a json file should be explored 
+
