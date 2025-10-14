@@ -1,28 +1,27 @@
 {
   "items": [
-    // --- WOMEN'S TOPS ---
-    { "id": 101, "name": "White Silk Blouse", "type": "top", "gender": "womens", "tags": ["classic", "work", "formal", "smart-casual"] },
-    { "id": 102, "name": "Graphic T-Shirt", "type": "top", "gender": "womens", "tags": ["modern", "casual", "streetwear"] },
-    { "id": 103, "name": "Boho Tunic Top", "type": "top", "gender": "womens", "tags": ["boho", "casual", "summer"] },
-    // --- MEN'S TOPS ---
-    { "id": 201, "name": "Blue Dress Shirt", "type": "top", "gender": "mens", "tags": ["classic", "work", "formal", "smart-casual"] },
-    { "id": 202, "name": "Black Polo Shirt", "type": "top", "gender": "mens", "tags": ["classic", "casual", "smart-casual"] },
-    { "id": 203, "name": "Henley Shirt", "type": "top", "gender": "mens", "tags": ["modern", "casual"] },
-    // --- DRESSES (WOMEN'S) ---
-    { "id": 111, "name": "Black Sheath Dress", "type": "dress", "gender": "womens", "tags": ["classic", "work", "formal", "event"] },
-    { "id": 112, "name": "Flowy Maxi Dress", "type": "dress", "gender": "womens", "tags": ["boho", "casual", "summer"] },
-    // --- WOMEN'S BOTTOMS ---
-    { "id": 121, "name": "Pencil Skirt", "type": "bottom", "gender": "womens", "tags": ["classic", "work", "formal"] },
-    { "id": 122, "name": "Distressed Jeans", "type": "bottom", "gender": "womens", "tags": ["modern", "casual"] },
-    // --- MEN'S BOTTOMS ---
-    { "id": 221, "name": "Grey Suit Trousers", "type": "bottom", "gender": "mens", "tags": ["classic", "work", "formal"] },
-    { "id": 222, "name": "Khaki Chinos", "type": "bottom", "gender": "mens", "tags": ["classic", "casual", "smart-casual"] },
-    // --- OUTERWEAR (UNISEX) ---
-    { "id": 301, "name": "Navy Blue Blazer", "type": "outerwear", "gender": "unisex", "tags": ["classic", "work", "formal", "smart-casual"] },
-    { "id": 302, "name": "Denim Jacket", "type": "outerwear", "gender": "unisex", "tags": ["modern", "casual"] },
-    // --- SHOES (UNISEX & GENDERED) ---
-    { "id": 401, "name": "Black Heels", "type": "shoes", "gender": "womens", "tags": ["classic", "work", "formal"] },
-    { "id": 402, "name": "Brown Oxford Shoes", "type": "shoes", "gender": "mens", "tags": ["classic", "work", "formal"] },
-    { "id": 403, "name": "White Sneakers", "type": "shoes", "gender": "unisex", "tags": ["modern", "casual", "streetwear"] }
+    { "id": 101, "name": "White Silk Blouse", "type": "top", "gender": "womens", "tags": ["classic", "work", "formal", "smart-casual"], "image_url": "https://i.pinimg.com/564x/a2/5a/2b/a25a2b36d02002e86cb21520c1a93d25.jpg" },
+    { "id": 102, "name": "Graphic T-Shirt", "type": "top", "gender": "womens", "tags": ["modern", "casual", "streetwear"], "image_url": "https://i.pinimg.com/564x/f3/7a/38/f37a38572450839c4a89ce86289b70b3.jpg" },
+    { "id": 103, "name": "Boho Tunic Top", "type": "top", "gender": "womens", "tags": ["boho", "casual", "summer"], "image_url": "https://i.pinimg.com/564x/9a/7c/4b/9a7c4b42313a24a6253c3c76c7f8b9b8.jpg" },
+
+    { "id": 201, "name": "Blue Dress Shirt", "type": "top", "gender": "mens", "tags": ["classic", "work", "formal", "smart-casual"], "image_url": "https://i.pinimg.com/564x/8a/0a/2c/8a0a2c0f6b3e9a5d3f8a0a9a1d3f0a3e.jpg" },
+    { "id": 202, "name": "Black Polo Shirt", "type": "top", "gender": "mens", "tags": ["classic", "casual", "smart-casual"], "image_url": "https://i.pinimg.com/564x/b8/0a/6b/b80a6b4a5b1b1a0a5b1b1a0a5b1b1a0a.jpg" },
+    { "id": 203, "name": "Henley Shirt", "type": "top", "gender": "mens", "tags": ["modern", "casual"], "image_url": "https://i.pinimg.com/564x/8e/4a/4a/8e4a4a1b1b1a0a5b1b1a0a5b1b1a0a5b.jpg" },
+
+    { "id": 111, "name": "Black Sheath Dress", "type": "dress", "gender": "womens", "tags": ["classic", "work", "formal", "event"], "image_url": "https://i.pinimg.com/564x/0f/36/a6/0f36a6e57f08215910d658f83ce93282.jpg" },
+    { "id": 112, "name": "Flowy Maxi Dress", "type": "dress", "gender": "womens", "tags": ["boho", "casual", "summer"], "image_url": "https://i.pinimg.com/564x/6c/49/a1/6c49a1860b764c243a4e21a20a3b2a95.jpg" },
+
+    { "id": 121, "name": "Pencil Skirt", "type": "bottom", "gender": "womens", "tags": ["classic", "work", "formal"], "image_url": "https://i.pinimg.com/564x/f1/65/59/f1655931b6708f523c91a788e0b60b72.jpg" },
+    { "id": 122, "name": "Distressed Jeans", "type": "bottom", "gender": "womens", "tags": ["modern", "casual"], "image_url": "https://i.pinimg.com/564x/23/9a/14/239a1451f28b111a84f3c467ddc1cb54.jpg" },
+
+    { "id": 221, "name": "Grey Suit Trousers", "type": "bottom", "gender": "mens", "tags": ["classic", "work", "formal"], "image_url": "https://i.pinimg.com/564x/c7/2a/82/c72a82d3c9007f3a8a370428d0958197.jpg" },
+    { "id": 222, "name": "Khaki Chinos", "type": "bottom", "gender": "mens", "tags": ["classic", "casual", "smart-casual"], "image_url": "https://i.pinimg.com/564x/e7/8a/a1/e78aa1332a61c31a73ff54bf8470a1a4.jpg" },
+
+    { "id": 301, "name": "Navy Blue Blazer", "type": "outerwear", "gender": "unisex", "tags": ["classic", "work", "formal", "smart-casual"], "image_url": "https://i.pinimg.com/564x/41/3c/26/413c267000b262828236f06416629b35.jpg" },
+    { "id": 302, "name": "Denim Jacket", "type": "outerwear", "gender": "unisex", "tags": ["modern", "casual"], "image_url": "https://i.pinimg.com/564x/b8/0a/6b/b80a6b4a5b1b1a0a5b1b1a0a5b1b1a0a.jpg" },
+
+    { "id": 401, "name": "Black Heels", "type": "shoes", "gender": "womens", "tags": ["classic", "work", "formal"], "image_url": "https://i.pinimg.com/564x/0f/36/a6/0f36a6e57f08215910d658f83ce93282.jpg" },
+    { "id": 402, "name": "Brown Oxford Shoes", "type": "shoes", "gender": "mens", "tags": ["classic", "work", "formal"], "image_url": "https://i.pinimg.com/564x/c7/2a/82/c72a82d3c9007f3a8a370428d0958197.jpg" },
+    { "id": 403, "name": "White Sneakers", "type": "shoes", "gender": "unisex", "tags": ["modern", "casual", "streetwear"], "image_url": "https://i.pinimg.com/564x/e7/8a/a1/e78aa1332a61c31a73ff54bf8470a1a4.jpg" }
   ]
 }
