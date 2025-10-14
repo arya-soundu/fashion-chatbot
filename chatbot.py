@@ -4,7 +4,7 @@ import nltk
 
 # Load Data and Keywords
 with open("outfits.json",'r') as file:
-    clothing_data = json.load()['items']
+    clothing_data = json.load(file)['items']
 
 # Defining occasion keywords and style keywords (same as in json file)
 OCCASION_KEYWORDS = {'work':['work','office','business','profesional'],'casual':['casual','weekend','day','realxed'],'formal':['formal','party','elegant']}
