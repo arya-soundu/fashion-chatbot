@@ -26,4 +26,4 @@ outfits.json file
 - it aslo has image links for reference 
 - there however needs to be more options here
 - probably also figure out a btter method then putting everything into a json file should be explored 
-
+- dictionary for outfit choice but better to add tags to the filee for more variety
