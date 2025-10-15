@@ -1,64 +1,71 @@
 import json
 import random
-import nltk
 
-# Tell NLTK to look for data in our local project folder.
-nltk.data.path.append('./nltk_data')
-
-# Load Data and Keywords
-with open("outfits.json",'r') as file:
+# --- Load Data and Keywords ---
+with open('outfits.json', 'r') as file:
     clothing_data = json.load(file)['items']
 
-# Defining occasion keywords and style keywords (same as in json file)
-OCCASION_KEYWORDS = {'work':['work','office','business','profesional'],'casual':['casual','weekend','day','realxed'],'formal':['formal','party','elegant']}
-STYLE_KEYWORDS = { 'classic': ['classic', 'timeless', 'simple'], 'modern': ['modern', 'trendy', 'edgy'], 'boho': ['boho', 'bohemian', 'chic']}
+OCCASION_KEYWORDS = {
+    'work': ['work', 'office', 'business', 'professional'],
+    'casual': ['casual', 'weekend', 'day', 'relaxed', 'chilling'],
+    'formal': ['formal', 'party', 'event', 'elegant', 'wedding']
+}
+STYLE_KEYWORDS = {
+    'classic': ['classic', 'timeless', 'simple'],
+    'modern': ['modern', 'trendy', 'edgy', 'cool'],
+    'boho': ['boho', 'bohemian', 'chic', 'flowy']
+}
+GENDER_KEYWORDS = {
+    'mens': ['man', 'men', 'mens', 'male', 'guy'],
+    'womens': ['woman', 'women', 'womens', 'female', 'lady']
+}
 
-#defining gender keywords
-GENDER_KEYWORDS = {'men':['man','men','male','mens','guy'],
-                   'women':['woman','women','womens','female','lady']}
-
-#function to find category
-def find_category(word,keyword_map):
-    for cat,keywords in keyword_map.items():
+# --- This function does not change ---
+def find_category(word, keyword_map):
+    """Finds which category a word belongs to."""
+    for category, keywords in keyword_map.items():
         if word in keywords:
-            return cat
+            return category
     return None
 
-def extract_entities_nltk(text):
-    # Extracts occasion, gender and style from user text
-    tokens=nltk.word_tokenize(text.lower())
-    tagged_tokens=nltk.pos_tag(tokens)
+# --- THIS IS THE NEW BRAIN - NO NLTK NEEDED ---
+def extract_entities_simple(text):
+    """Extracts entities using simple word matching."""
+    words = text.lower().split()
     occasion = None
-    gender = None
     style = None
-    for word,tag in tagged_tokens:
-        if tag in ['NN','NNS','JJ']: #Looks for nouns and adjectives
-            if not occasion: occasion = find_category(word,OCCASION_KEYWORDS)
-            if not gender: gender = find_category(word,GENDER_KEYWORDS)
-            if not style: style = find_category(word,STYLE_KEYWORDS)
-    return occasion,gender,style
+    gender = None
 
+    for word in words:
+        # Remove punctuation for better matching, e.g., "men's" -> "mens"
+        cleaned_word = ''.join(filter(str.isalnum, word))
+        
+        if not occasion:
+            occasion = find_category(cleaned_word, OCCASION_KEYWORDS)
+        if not style:
+            style = find_category(cleaned_word, STYLE_KEYWORDS)
+        if not gender:
+            gender = find_category(cleaned_word, GENDER_KEYWORDS)
+            
+    return occasion, style, gender
+
+# --- This function does not change ---
 def build_outfit(tags, gender):
-    #Builds a unique outfit by finding items that match tags AND gender.
-    # Filter items by gender first (including unisex items)
+    """Builds a unique outfit by finding items that match tags AND gender."""
     gender_filtered_items = [item for item in clothing_data if item['gender'] in [gender, 'unisex']]
 
-    # Handle dresses (only for women's requests)
-    if gender == 'women' and any(tag in ['formal', 'event', 'party', 'summer'] for tag in tags):
+    if gender == 'womens' and any(tag in ['formal', 'event', 'party', 'summer'] for tag in tags):
         possible_dresses = [item for item in gender_filtered_items if item['type'] == 'dress' and any(t in item['tags'] for t in tags)]
         if possible_dresses:
             dress = random.choice(possible_dresses)
-            # Find matching shoes
             possible_shoes = [item for item in gender_filtered_items if item['type'] == 'shoes' and any(t in item['tags'] for t in dress['tags'])]
             if possible_shoes:
                 return {"name": f"A Complete {dress['tags'][0].title()} Look", "items": [dress, random.choice(possible_shoes)]}
 
-    # Standard outfit build: top, bottom, shoes
     outfit = {}
     for item_type in ["top", "bottom", "shoes"]:
-        # Find items of the correct type that match all requested tags
         possible_items = [item for item in gender_filtered_items if item['type'] == item_type and all(t in item['tags'] for t in tags)]
-        if not possible_items: # If no perfect match, try a partial match
+        if not possible_items:
              possible_items = [item for item in gender_filtered_items if item['type'] == item_type and any(t in item['tags'] for t in tags)]
         if possible_items:
             outfit[item_type] = random.choice(possible_items)
@@ -68,35 +75,32 @@ def build_outfit(tags, gender):
         
     return None
 
+# --- This function now calls the new, simpler brain ---
 def get_bot_response(user_text, memory={}):
-    """Handles the conversation, now with memory for follow-up questions."""
-    occasion, style, gender = extract_entities_nltk(user_text)
+    """Handles the conversation flow."""
+    # We now call our simple function instead of the NLTK one
+    occasion, style, gender = extract_entities_simple(user_text)
 
-    # Use memory if available
     occasion = occasion or memory.get('occasion')
     style = style or memory.get('style')
     gender = gender or memory.get('gender')
 
-    # --- NEW CONVERSATIONAL LOGIC ---
     if not gender:
         memory['occasion'] = occasion
         memory['style'] = style
         return {"error": "Of course! Are you looking for men's or women's fashion?", "memory": memory}
     
     if not occasion or not style:
-        # Store what we know and ask for what's missing
         memory['gender'] = gender
         memory['occasion'] = occasion
         memory['style'] = style
         return {"error": "I can help with that! Could you also tell me the occasion and style you're thinking of?", "memory": memory}
     
-    # If we have everything, build the outfit
     tags_to_match = [occasion, style]
     outfit = build_outfit(tags_to_match, gender)
 
     if outfit:
         outfit['item_names'] = [item['name'] for item in outfit['items']]
-        # Use the main image of the most significant item (top or dress)
         outfit['image_url'] = outfit['items'][0]['image_url']
         return outfit
     else:
