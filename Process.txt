@@ -27,3 +27,10 @@ outfits.json file
 - there however needs to be more options here
 - probably also figure out a btter method then putting everything into a json file should be explored 
 - dictionary for outfit choice but better to add tags to the filee for more variety
+
+Now for the API Key version
+- get api key from gemini = AIzaSyA9G75t7W_KOBVYzJqCK8NLZq3FyI-w8Kk
+- set GEMINI_API_KEY=YOUR_API_KEY_HERE
+- execute this before running app_gemini.py
+- outfits file as a text file here
+- 
