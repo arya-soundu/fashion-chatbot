@@ -9,25 +9,24 @@ document.addEventListener("DOMContentLoaded", () => {
      * Handles the main logic of sending a message and receiving a response.
      */
     const sendMessage = async () => {
-        // Get the user's message and trim any whitespace
         const messageText = userInput.value.trim();
-
-        // If the message is empty, do nothing
         if (messageText === '') return;
 
-        // 1. Display the user's own message in the chat window
+        // 1. Display user message
         appendMessage(messageText, 'user');
-        // Clear the input field for the next message
         userInput.value = '';
+
+        // --- NEW CODE: Disable the button to prevent double-sends ---
+        sendBtn.disabled = true;
+        userInput.disabled = true;
+        sendBtn.textContent = '...'; // Show a loading state
+        // -----------------------------------------------------------
 
         try {
             // 2. Send the message to the Flask server
             const response = await fetch('/get_response', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                // The user's message is sent in a JSON object
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: messageText })
             });
             const data = await response.json();
@@ -36,12 +35,16 @@ document.addEventListener("DOMContentLoaded", () => {
             appendBotResponse(data);
 
         } catch (error) {
-            // If there's a network or server error, display a message
             console.error("Error fetching bot response:", error);
             appendBotResponse({ display_html: "<p>Sorry, I'm having trouble connecting. Please try again later.</p>" });
+        } finally {
+            // --- NEW CODE: Re-enable the button after the response ---
+            sendBtn.disabled = false;
+            userInput.disabled = false;
+            sendBtn.textContent = 'Send';
+            // --------------------------------------------------------
         }
     };
-
     /**
      * Creates and adds a simple text bubble for the user's message.
      * @param {string} text - The message text.

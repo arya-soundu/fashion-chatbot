@@ -25,11 +25,26 @@ def add_personality_gemini(response_data):
 def index():
     return render_template("index.html")
 
+# In app_gemini.py
+
 @app.route("/get_response", methods=["POST"])
 def chat_response():
     user_text = request.json.get("message")
-    raw_response = get_bot_response_gemini(user_text)
-    final_response = add_personality_gemini(raw_response)
+    # Get memory from the user's session, or start fresh
+    memory = session.get('chat_memory', {}) 
+    
+    raw_response = get_bot_response_gemini(user_text, memory)
+    
+    # If the bot returned a question, update the memory
+    if 'question' in raw_response:
+        session['chat_memory'] = raw_response.get('memory', {})
+        # Format the question for display
+        final_response = {"display_html": f"<p>{raw_response['question']}</p>"}
+    else:
+        # If we got a full response, clear the memory
+        session.pop('chat_memory', None)
+        final_response = add_personality_gemini(raw_response)
+        
     return jsonify(final_response)
 
 if __name__ == "__main__":

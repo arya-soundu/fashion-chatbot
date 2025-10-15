@@ -1,11 +1,7 @@
 This is the inventory of available clothing items:
-- Item 101: A women's White Silk Blouse (type: top). Tags: classic, work, formal, smart-casual.
-- Item 102: A women's Graphic T-Shirt (type: top). Tags: modern, casual, streetwear.
-- Item 111: A women's Black Sheath Dress (type: dress). Tags: classic, work, formal, event.
-- Item 121: A women's Pencil Skirt (type: bottom). Tags: classic, work, formal.
-- Item 201: A men's Blue Dress Shirt (type: top). Tags: classic, work, formal.
-- Item 221: A men's Grey Suit Trousers (type: bottom). Tags: classic, work, formal.
-- Item 222: Men's Khaki Chinos (type: bottom). Tags: classic, casual, smart-casual.
-- Item 301: A unisex Navy Blue Blazer (type: outerwear). Tags: classic, work, formal.
-- Item 402: Men's Brown Oxford Shoes (type: shoes). Tags: classic, work, formal.
-- Item 403: Unisex White Sneakers (type: shoes). Tags: modern, casual, streetwear.
+- Item 101 (gender: womens): A White Silk Blouse (type: top). Tags: classic, work, formal.
+- Item 111 (gender: womens): A Black Sheath Dress (type: dress). Tags: classic, work, formal, event.
+- Item 201 (gender: mens): A Blue Dress Shirt (type: top). Tags: classic, work, formal.
+- Item 222 (gender: mens): Khaki Chinos (type: bottom). Tags: classic, casual, smart-casual.
+- Item 301 (gender: unisex): A Navy Blue Blazer (type: outerwear). Tags: classic, work, formal.
+- Item 403 (gender: unisex): White Sneakers (type: shoes). Tags: modern, casual, streetwear.
