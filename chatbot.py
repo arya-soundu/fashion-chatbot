@@ -2,6 +2,9 @@ import json
 import random
 import nltk
 
+# Tell NLTK to look for data in our local project folder.
+nltk.data.path.append('./nltk_data')
+
 # Load Data and Keywords
 with open("outfits.json",'r') as file:
     clothing_data = json.load(file)['items']
