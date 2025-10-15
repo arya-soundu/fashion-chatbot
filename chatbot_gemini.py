@@ -15,7 +15,7 @@ def get_bot_response_gemini(user_text):
     """Gets a creative outfit recommendation from the Gemini API."""
     
     clothing_knowledge = load_knowledge()
-    model = genai.GenerativeModel('gemini-pro')
+    model = genai.GenerativeModel('gemini-1.0-pro')
 
     # This is the core of the new approach: The Prompt!
     prompt = f"""
