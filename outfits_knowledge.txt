@@ -1,7 +1,33 @@
-This is the inventory of available clothing items:
-- Item 101 (gender: womens): A White Silk Blouse (type: top). Tags: classic, work, formal.
+This is the inventory of available clothing items for your fashion recommendations.
+
+## WOMEN'S ITEMS ##
+- Item 101 (gender: womens): A White Silk Blouse (type: top). Tags: classic, work, formal, smart-casual.
+- Item 102 (gender: womens): A Graphic T-Shirt (type: top). Tags: modern, casual, streetwear.
+- Item 103 (gender: womens): A Boho Tunic Top (type: top). Tags: boho, casual, summer.
+- Item 104 (gender: womens): A Black V-Neck Tee (type: top). Tags: classic, casual, modern.
 - Item 111 (gender: womens): A Black Sheath Dress (type: dress). Tags: classic, work, formal, event.
-- Item 201 (gender: mens): A Blue Dress Shirt (type: top). Tags: classic, work, formal.
+- Item 112 (gender: womens): A Floral Sundress (type: dress). Tags: boho, casual, summer.
+- Item 121 (gender: womens): A Black Pencil Skirt (type: bottom). Tags: classic, work, formal.
+- Item 122 (gender: womens): Distressed Jeans (type: bottom). Tags: modern, casual, streetwear.
+- Item 123 (gender: womens): Wide-Leg Linen Trousers (type: bottom). Tags: boho, casual, smart-casual.
+- Item 131 (gender: womens): A Black Leather Jacket (type: outerwear). Tags: modern, edgy, streetwear, casual.
+- Item 141 (gender: womens): Black Ankle Boots (type: shoes). Tags: modern, work, smart-casual, edgy.
+- Item 142 (gender: womens): Strappy Sandals (type: shoes). Tags: boho, casual, summer.
+
+## MEN'S ITEMS ##
+- Item 201 (gender: mens): A Blue Dress Shirt (type: top). Tags: classic, work, formal, smart-casual.
+- Item 202 (gender: mens): A Black Polo Shirt (type: top). Tags: classic, casual, smart-casual.
+- Item 203 (gender: mens): A Grey Henley Shirt (type: top). Tags: modern, casual.
+- Item 204 (gender: mens): A Navy V-Neck Sweater (type: top). Tags: classic, work, smart-casual.
+- Item 221 (gender: mens): Grey Suit Trousers (type: bottom). Tags: classic, work, formal.
 - Item 222 (gender: mens): Khaki Chinos (type: bottom). Tags: classic, casual, smart-casual.
-- Item 301 (gender: unisex): A Navy Blue Blazer (type: outerwear). Tags: classic, work, formal.
+- Item 223 (gender: mens): Dark Wash Jeans (type: bottom). Tags: modern, casual, smart-casual.
+- Item 231 (gender: mens): A Brown Bomber Jacket (type: outerwear). Tags: modern, casual, streetwear.
+- Item 241 (gender: mens): Brown Oxford Shoes (type: shoes). Tags: classic, work, formal.
+- Item 242 (gender: mens): Chelsea Boots (type: shoes). Tags: modern, smart-casual, edgy.
+
+## UNISEX ITEMS ##
+- Item 301 (gender: unisex): A Navy Blue Blazer (type: outerwear). Tags: classic, work, formal, smart-casual.
 - Item 403 (gender: unisex): White Sneakers (type: shoes). Tags: modern, casual, streetwear.
+- Item 501 (gender: unisex): A Classic Leather Watch (type: accessory). Tags: classic, work, formal, smart-casual.
+- Item 502 (gender: unisex): Aviator Sunglasses (type: accessory). Tags: modern, casual, summer.
